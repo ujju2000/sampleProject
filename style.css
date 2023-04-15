@@ -50,8 +50,13 @@ label {
 	height: 300px;
 	width: 100%;
 	background-color: white;
+	overflow:  auto;
 }
 
 .trend {
 	font-size: 20px;
+}
+
+.trends {
+	font-weight: 700;
 }

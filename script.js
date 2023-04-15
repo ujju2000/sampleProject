@@ -14,16 +14,31 @@ import bloggerInfo from './info.js';
 $('.btn').click(()=>{
     let blogger = document.querySelector('#bloggerName').value;
     print(blogger-1);
-    $('.result').css('display','block');
+    
+    $('.result').toggle();
 });
 
+function trendPrint(trends){
+    let div = document.createElement('div');
+    div.classList.add('trends');
+    let ul = document.createElement('ul');
+    div.appendChild(ul);
+    for(let i =0;i<trends.length;i++) {
+        let li = document.createElement('li');
+        li.textContent = trends[i];
+        ul.appendChild(li);
+    }
 
+    $('.info').append(div);
+}
 function print(idx) {
     
     let bio = bloggerInfo[idx].bio;
     let trends = bloggerInfo[idx].trends;
-
+    
     $('.info').html(
-        " "+bio+" <br> <span class = 'trend'>The following trends are :-</span> <br>"+trends+ " "
+        " "+bio+" <br> <span class = 'trend'>The following trends are :-</span> <br>"
     )
+    trendPrint(trends);
+
 }
