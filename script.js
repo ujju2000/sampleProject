@@ -1,15 +1,20 @@
 import bloggerInfo from './info.js';
 
 
-$(document).ready(() => {
-    addBloggerName();
 
-})
+(function addBloggerName() {
+    for(let i =0;i<bloggerInfo.length;i++) {
+        let name = bloggerInfo[i].name;
+        let html = `<option value = ${i+1}> ${name} </option>`
+        $('#bloggerName').append(html);
+    }
+})();
+
 
 $('.btn').click(()=>{
     let blogger = document.querySelector('#bloggerName').value;
     print(blogger-1);
-    $('.result').show();
+    $('.result').css('display','block');
 });
 
 
@@ -21,15 +26,4 @@ function print(idx) {
     $('.info').html(
         " "+bio+" <br> <span class = 'trend'>The following trends are :-</span> <br>"+trends+ " "
     )
-}
-
-
-function addBloggerName() {
-    
-    for(let i =0;i<bloggerInfo.length;i++) {
-        let name = bloggerInfo[i].name;
-        let html = `<option value = ${++i}> ${name} </option>`
-        $('#bloggerName').append(html);
-        --i;
-    }
 }
