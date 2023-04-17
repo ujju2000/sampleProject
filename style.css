@@ -63,19 +63,19 @@ label {
 .year {
 	font-weight: 700;
 }
-.row::before{
+/* .row::before{
 	content : '';
 	position: absolute;
 	
 	left : -1%;
-	/* top : %; */
+	top : %;
 	bottom : 50%;
 	height : 5px;
 	width : 5px;
 	border-radius: 50%;
 	background-color: red;
 
-}
+} */
 .row {
 	position : relative;
 	font-size : 15px;

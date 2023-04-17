@@ -21,7 +21,7 @@ $('.btn').click(()=>{
     $('.result').show();
 });
 function printAll(bloggerAll) {
-    let div = document.querySelector('.result');
+    let div = document.createElement('div');
     div.innerHTML = `<h2> All the Trends are :-  </h2>`
     
     let allTrend = [];
@@ -29,18 +29,17 @@ function printAll(bloggerAll) {
         allTrend.push(bloggerInfo[i].twenty_23);
         allTrend.push(bloggerInfo[i].twenty_22);
         allTrend.push(bloggerInfo[i].twenty_21);
-
     }
     console.log(allTrend)
     for(let i =0;i<allTrend.length;i++) {
         let row = document.createElement('div');
         row.classList.add('row');
         // let strArray = allTrend[i].split(",");
-
-        row.innerHTML = allTrend[i];
+        
+        row.textContent = allTrend[i];
         div.appendChild(row);
     }
-    $('.info').append(div);
+    $('.info').html(div);
     
 }
 function yearlyTrendPrint(idx,year){
@@ -66,11 +65,11 @@ function print(idx) {
     let bio = bloggerInfo[idx].bio;
     // let trends = bloggerInfo[idx].trends;
     let year = document.querySelector('#trendSelect').value;
-    console.log("year"  + year);
+    // console.log("year"  + year);
     $('.info').html(
         " "+bio+" <br> <span class = 'trend'>The following trends according to year :-</span> "
     )
     
-    console.log('udx'+idx);
+    // console.log('udx'+idx);
     yearlyTrendPrint(idx,year);
 }

@@ -81,7 +81,8 @@ const blogger = [
       twenty_21 : ["Statement outerwear", "Leather jackets", "Casual sneakers"]
     },
     {
-      name : 'All'
+      name : 'All',
+      
     }
 ];
 
