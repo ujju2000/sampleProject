@@ -1,3 +1,4 @@
+
 import bloggerInfo from './info.js';
 
 
@@ -15,17 +16,23 @@ $('.btn').click(()=>{
     let blogger = document.querySelector('#bloggerName').value;
     print(blogger-1);
     
-    $('.result').toggle();
+    $('.result').show();
 });
 
-function trendPrint(trends){
+function yearlyTrendPrint(idx,year){
     let div = document.createElement('div');
-    div.classList.add('trends');
+    div.classList.add('year');
     let ul = document.createElement('ul');
     div.appendChild(ul);
-    for(let i =0;i<trends.length;i++) {
+    
+   let arrYear = [];        
+   if(year == 1) arrYear = bloggerInfo[idx].twenty_23;
+   else if(year == 2) arrYear = bloggerInfo[idx].twenty_22;
+   else arrYear = bloggerInfo[idx].twenty_21; 
+    console.log(arrYear.length)
+    for(let i =0;i<arrYear.length;i++) {
         let li = document.createElement('li');
-        li.textContent = trends[i];
+        li.textContent = arrYear[i];
         ul.appendChild(li);
     }
 
@@ -34,11 +41,13 @@ function trendPrint(trends){
 function print(idx) {
     
     let bio = bloggerInfo[idx].bio;
-    let trends = bloggerInfo[idx].trends;
-    
+    // let trends = bloggerInfo[idx].trends;
+    let year = document.querySelector('#trendSelect').value;
+    console.log("year"  + year);
     $('.info').html(
-        " "+bio+" <br> <span class = 'trend'>The following trends are :-</span> <br>"
+        " "+bio+" <br> <span class = 'trend'>The following trends according to year :-</span> <br>"
     )
-    trendPrint(trends);
-
+    
+    console.log('udx'+idx);
+    yearlyTrendPrint(idx,year);
 }
