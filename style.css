@@ -63,7 +63,21 @@ label {
 .year {
 	font-weight: 700;
 }
+.row::before{
+	content : '';
+	position: absolute;
+	
+	left : -1%;
+	/* top : %; */
+	bottom : 50%;
+	height : 5px;
+	width : 5px;
+	border-radius: 50%;
+	background-color: red;
+
+}
 .row {
+	position : relative;
 	font-size : 15px;
 	font-weight: 500;
 	text-transform: capitalize;
